@@ -4,6 +4,8 @@ import List from "./components/List";
 import { useState } from "react";
 
 function App() {
+  const [data, setData] = useState(["Goku", "Vegeta", "Gohan", "Trunks"]);
+  /*
   const [isLoading, setIsLoading] = useState(false);
   const handleClick = () => setIsLoading(!isLoading);
 
@@ -23,6 +25,18 @@ function App() {
       <Button isLoading={isLoading} onClick={handleClick}>
         Hola Mundo
       </Button>
+    </Card>
+  );
+  */
+
+  //A partir de aca es para un ejercicio donde tengo que agregar elementos a una lista
+  const addMinion = () => setData([...data, "Minion"]);
+  const delMinion = () => setData(data.slice(0, -1));
+  return (
+    <Card>
+      <Button onClick={addMinion}>Agregar</Button>
+      <Button onClick={delMinion}>Eliminar</Button>
+      <List data={data} />
     </Card>
   );
 }
